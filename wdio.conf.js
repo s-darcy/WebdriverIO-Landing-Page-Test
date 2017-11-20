@@ -44,8 +44,8 @@ exports.config = {
         // 5 instances get started at a time.
         maxInstances: 5,
         //
-        browserName: 'firefox',
         browserName: 'chrome'
+        // browserName: 'firefox'
     }],
     //
     // ===================
@@ -56,7 +56,7 @@ exports.config = {
     // By default WebdriverIO commands are executed in a synchronous way using
     // the wdio-sync package. If you still want to run your tests in an async way
     // e.g. using promises you can set the sync option to false.
-    sync: true,
+    sync: false,
     //
     // Level of logging verbosity: silent | verbose | command | data | result | error
     logLevel: 'silent',
@@ -78,7 +78,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost',
+    baseUrl: 'https://internet.frontier.com/',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -187,8 +187,11 @@ exports.config = {
      * Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
      * beforeEach in Mocha)
      */
-    // beforeHook: function () {
-    // },
+    before: function() {
+        var chai = require('chai');
+        global.expect = chai.expect;
+        chai.Should();
+    }
     /**
      * Hook that gets executed _after_ a hook within the suite starts (e.g. runs after calling
      * afterEach in Mocha)
