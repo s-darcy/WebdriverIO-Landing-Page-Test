@@ -4,12 +4,14 @@
   "description": "",
   "main": "wdio.conf.js",
   "scripts": {
-    "test": "mocha"
+    "test": "./node_modules/.bin/wdio wdio.conf.js",
+    "runTest": "gulp runTest"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "browserevent": "^0.2.0",
+    "chai": "^4.1.2",
     "gulp": "^3.9.1",
     "gulp-webdriver": "^1.0.3",
     "selenium-standalone": "^6.11.0",
