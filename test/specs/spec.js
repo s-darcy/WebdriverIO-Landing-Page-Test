@@ -12,13 +12,14 @@ describe('frontier page', function () {
     });
 
     //tests the Zip finder
-    it('should submit login form', function () {
+    it.only('should submit login form', async function () {
         browser.url('/');
         browser.setValue('#zip', '22222');
-        browser.click('.js-address-submit');
+        
+        await browser.click('#js-track-form-check-availability');
         browser.pause(9000);
         const newURL = browser.getUrl();
-        assert.equal(newURL, validURL);
+        await assert.equal(newURL, validURL);
     });
 });
 
